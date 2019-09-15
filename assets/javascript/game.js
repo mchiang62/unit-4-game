@@ -5,17 +5,14 @@
 // Crystal 3 - random number after each game between 1 - 12
 // Crystal 4 - random number after each game between 1 - 12
 
-// var crystal1;
-// var crystal2;
-// var crystal3;
-// var crystal4;
+// let crystal1;
+// let crystal2;
+// let crystal3;
+// let crystal4;
 
 
-// var randomNumber = Math.floor(Math.random() * (102)) + 19;
-// var crystals = Math.floor(Math.random() * (12)) + 1;
 
-// $("#random-number").text(randomNumber);
-
+$(document).ready(function(){
 
 function generateRandomNumber(){
     return Math.floor(Math.random() * (102)) + 19
@@ -27,11 +24,79 @@ function generateRandomNumber(){
    }
 
 
-   let randomNum = generateRandomNumber();
-   let crystals = generateCrystals();
+   var randomNum = generateRandomNumber();
+   var crystals = generateCrystals();
+   
+
+    $("#random-number").html(randomNum);
+
+    $("#crystal-1").on("click", function () {
+    $("#total-score").html(crystals);
+
+   });
+
+   $("#crystal-2").on("click", function () {
+    $("#total-score").html(crystals);
+
+});
+
+    $("#crystal-3").on("click", function () {
+    $("#total-score").html(crystals);
+
+});
+
+    $("#crystal-4").on("click", function () {
+    $("#total-score").html(crystals);
+
+});
 
 
-   $("#random-number").html(randomNum);
+
+var totalScore = 0;
+var winCount = 0;
+var lossCount = 0;
+
+$("#wins").html(winCount);
+$("#losses").html(lossCount);
+
+
+function winner () {
+    console.log("You Win! :)");
+    winCount++;
+    $("#wins").html(winCount);
+}
+
+
+function loser () {
+    console.log("You lose! :(");
+    lossCount++;
+    $("#losses").html(lossCount);
+}
+
+function reset () {
+    randomNum = generateRandomNumber();
+    console.log(randomNum);
+    crystals = generateCrystals();
+    console.log(crystals);
+    
+}
+
+
+// reset function
+
+winner();
+loser();
+reset();
+
+
+
+
+// how do you get these functions to add together?
+
+
+
+  
+});
    
 
 
@@ -77,3 +142,10 @@ function generateRandomNumber(){
 
 // Need reset function after a win or lose
 
+
+
+
+// var randomNumber = Math.floor(Math.random() * (102)) + 19;
+// var crystals = Math.floor(Math.random() * (12)) + 1;
+
+// $("#random-number").text(randomNumber);
