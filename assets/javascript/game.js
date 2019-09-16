@@ -5,12 +5,6 @@
 // Crystal 3 - random number after each game between 1 - 12
 // Crystal 4 - random number after each game between 1 - 12
 
-// let crystal1;
-// let crystal2;
-// let crystal3;
-// let crystal4;
-
-
 
 $(document).ready(function(){
 
@@ -19,85 +13,127 @@ function generateRandomNumber(){
 
    }
 
-   function generateCrystals(){
-    return Math.floor(Math.random() * (12)) + 1
-   }
-
-
-   var randomNum = generateRandomNumber();
-   var crystals = generateCrystals();
+var randomNum = generateRandomNumber();
    
+var crystal1 = Math.floor(Math.random() * (12)) + 1;
+var crystal2 = Math.floor(Math.random() * (12)) + 1;
+var crystal3 = Math.floor(Math.random() * (12)) + 1;
+var crystal4 = Math.floor(Math.random() * (12)) + 1;
+
+var totalScore = 0;
+
 
     $("#random-number").html(randomNum);
 
-    $("#crystal-1").on("click", function () {
-    $("#total-score").html(crystals);
 
-   });
+    $("#crystal-1").on("click", function () {
+        totalScore = totalScore + crystal1;
+        console.log("total = " + totalScore);
+    $("#total-score").html(totalScore);
+    if (totalScore === randomNum) {
+        winner();
+    }
+    else if (totalScore > randomNum) {
+        loser();
+    }
+
+});
 
    $("#crystal-2").on("click", function () {
-    $("#total-score").html(crystals);
+    totalScore = totalScore + crystal2;
+    console.log("total = " + totalScore);
+    $("#total-score").html(totalScore);
+    if (totalScore === randomNum) {
+    winner();
+    }
+    else if (totalScore > randomNum) {
+    loser();
+    }
+
 
 });
 
     $("#crystal-3").on("click", function () {
-    $("#total-score").html(crystals);
+        totalScore = totalScore + crystal3;
+        console.log("total = " + totalScore);
+    $("#total-score").html(totalScore);
+    if (totalScore === randomNum) {
+        winner();
+    }
+    else if (totalScore > randomNum) {
+        loser();
+    }
+
 
 });
 
     $("#crystal-4").on("click", function () {
-    $("#total-score").html(crystals);
+        totalScore = totalScore + crystal4;
+        console.log("total = " + totalScore);
+    $("#total-score").html(totalScore);
+    if (totalScore === randomNum) {
+        winner();
+    }
+    else if (totalScore > randomNum) {
+        loser();
+    }
+
 
 });
 
-
-
-var totalScore = 0;
 var winCount = 0;
 var lossCount = 0;
+
 
 $("#wins").html(winCount);
 $("#losses").html(lossCount);
 
 
 function winner () {
-    console.log("You Win! :)");
+    alert("You Win! :)");
     winCount++;
     $("#wins").html(winCount);
+    reset();
 }
 
 
 function loser () {
-    console.log("You lose! :(");
+    alert("You Lose! :(");
     lossCount++;
     $("#losses").html(lossCount);
+    reset();
 }
 
 function reset () {
     randomNum = generateRandomNumber();
     console.log(randomNum);
-    crystals = generateCrystals();
-    console.log(crystals);
-    
+    $("#random-number").html(randomNum);
+    // crystals = generateCrystals();
+    // console.log(crystals);
+    crystal1 = Math.floor(Math.random() * (12)) + 1;
+    crystal2 = Math.floor(Math.random() * (12)) + 1;
+    crystal3 = Math.floor(Math.random() * (12)) + 1;
+    crystal4 = Math.floor(Math.random() * (12)) + 1;
+    totalScore = 0;
+    $("#total-score").html(totalScore);
+
 }
-
-
-// reset function
-
-winner();
-loser();
-reset();
-
-
-
-
-// how do you get these functions to add together?
-
-
-
   
 });
    
+
+
+
+// Each button (crystal) needs random number (math floor?)
+
+// when buttons are pressed, random crystal numbers below will show in "total score". Press these buttons until it adds up to the random number that’s generated.
+
+// needs random # at the start of the game 19 -120 / math.floor
+
+// Match "total score" of the crystal to the random 19-120 number that’s generated
+// if the number matches win++, else if lose++
+
+// after a win and loss, reset random number and crystal
 
 
 // function getRandomIntInclusive(min, max) {
@@ -106,46 +142,3 @@ reset();
 //     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 //   }
 
-// var randomNumber = [];
-
-// for(var i=19; i <121; i++) {
-//     randomNumber.push(i);
-
-// }
-
-// var crystals = [];
-
-// for(var c=1; c<13; c++) {
-//     crystals.push(c);
-
-// }
-
-
-
-
-// Each button (crystal) needs random number (math floor?)
-
-// when buttons are pressed, random crystal numbers below will show in "total score". Press these buttons until it adds up to the random number that’s generated.
-
-
-// needs random # at the start of the game and for loop 19 -120 / math.floor
-
-// have to link the random 19-120 number to the "total score" to show 
-
-
-// Match total score of the crystal to the random number that’s generated
-// if the number matches (you win), else (you lose)
-// wins ++ / losses++
-
-// if it does not equal, reset random number and crystal
-// if it does equal, win++
-
-// Need reset function after a win or lose
-
-
-
-
-// var randomNumber = Math.floor(Math.random() * (102)) + 19;
-// var crystals = Math.floor(Math.random() * (12)) + 1;
-
-// $("#random-number").text(randomNumber);
