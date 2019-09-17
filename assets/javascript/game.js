@@ -1,10 +1,9 @@
-// Each image button has random numbers
+// Each image button has a random number
 
-// Crystal 1 - random number after each game between 1 - 12
-// Crystal 2 - random number after each game between 1 - 12
-// Crystal 3 - random number after each game between 1 - 12
-// Crystal 4 - random number after each game between 1 - 12
-
+// Crystal 1 - random number between 1 - 12 after each game
+// Crystal 2 - random number between 1 - 12 after each game
+// Crystal 3 - random number between 1 - 12 after each game
+// Crystal 4 - random number between 1 - 12 after each game
 
 $(document).ready(function(){
 
@@ -30,12 +29,7 @@ var totalScore = 0;
         totalScore = totalScore + crystal1;
         console.log("total = " + totalScore);
     $("#total-score").html(totalScore);
-    if (totalScore === randomNum) {
-        winner();
-    }
-    else if (totalScore > randomNum) {
-        loser();
-    }
+    countScores ();
 
 });
 
@@ -43,13 +37,7 @@ var totalScore = 0;
     totalScore = totalScore + crystal2;
     console.log("total = " + totalScore);
     $("#total-score").html(totalScore);
-    if (totalScore === randomNum) {
-    winner();
-    }
-    else if (totalScore > randomNum) {
-    loser();
-    }
-
+    countScores ();
 
 });
 
@@ -57,13 +45,7 @@ var totalScore = 0;
         totalScore = totalScore + crystal3;
         console.log("total = " + totalScore);
     $("#total-score").html(totalScore);
-    if (totalScore === randomNum) {
-        winner();
-    }
-    else if (totalScore > randomNum) {
-        loser();
-    }
-
+    countScores ();
 
 });
 
@@ -71,12 +53,7 @@ var totalScore = 0;
         totalScore = totalScore + crystal4;
         console.log("total = " + totalScore);
     $("#total-score").html(totalScore);
-    if (totalScore === randomNum) {
-        winner();
-    }
-    else if (totalScore > randomNum) {
-        loser();
-    }
+    countScores ();
 
 
 });
@@ -87,6 +64,7 @@ var lossCount = 0;
 
 $("#wins").html(winCount);
 $("#losses").html(lossCount);
+
 
 
 function winner () {
@@ -108,14 +86,22 @@ function reset () {
     randomNum = generateRandomNumber();
     console.log(randomNum);
     $("#random-number").html(randomNum);
-    // crystals = generateCrystals();
-    // console.log(crystals);
     crystal1 = Math.floor(Math.random() * (12)) + 1;
     crystal2 = Math.floor(Math.random() * (12)) + 1;
     crystal3 = Math.floor(Math.random() * (12)) + 1;
     crystal4 = Math.floor(Math.random() * (12)) + 1;
     totalScore = 0;
     $("#total-score").html(totalScore);
+
+}
+
+function countScores () {
+    if (totalScore === randomNum) {
+        winner();
+    }
+    else if (totalScore > randomNum) {
+        loser();
+    }
 
 }
   
@@ -142,3 +128,10 @@ function reset () {
 //     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
 //   }
 
+// winner() - this is calling a function
+
+// type of variable and value the same - === signs == or === double equal signs check the value; triple checks everything
+
+ // methods
+    // . something is a method (inside the function)
+    // in function, returning something means equals to the returned #.
