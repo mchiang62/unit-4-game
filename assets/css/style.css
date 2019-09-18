@@ -4,8 +4,31 @@ img {
 }
 
 button {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 
 }
 
+body {
+    background-color: beige;
+
+}
+
+h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: lightcoral;
+    margin-bottom: 20px;
+    margin-left: 25px;
+
+}
+
+p {
+    font-weight: bold;
+    
+}
+
+#instructions {
+    color: gray;
+    font-weight: lighter;
+    font-style: italic;
+}
